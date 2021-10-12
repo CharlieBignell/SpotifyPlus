@@ -10,10 +10,20 @@ public class Playlist<T> implements Tracklist<T> {
 
     private List<String> tags = new ArrayList<String>();
 
+    /*
+     * Playlist Constructor
+     */
     public Playlist() {
         super();
     }
 
+    /**
+     * Add a tag to a playlist
+     * 
+     * @param songRef The song reference. In the case of a playlist, this is a tag
+     *                in the form of a string
+     * @throws IllegalArgumentException
+     */
     public void populate(T songRef) {
         if (songRef instanceof String) {
             tags.add((String) songRef);
@@ -22,6 +32,13 @@ public class Playlist<T> implements Tracklist<T> {
         }
     }
 
+    /**
+     * Remove a tag from a playlist
+     * 
+     * @param songRef The song reference. In the case of a playlist, this is a tag
+     *                in the form of a string
+     * @throws IllegalArgumentException
+     */
     public void dePopulate(T songRef) {
         if (songRef instanceof String) {
             tags.remove(songRef);
@@ -30,26 +47,32 @@ public class Playlist<T> implements Tracklist<T> {
         }
     }
 
+    /**
+     * Play the songs in the playlist, for demonstrative purposes it simply ouputs
+     * the songs to the console
+     */
     public void playSongs() {
 
         String line = "";
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("D:/Projects/Tagger/src/main/java/com/charliebignell/app/songs.csv"));
+            BufferedReader br = new BufferedReader(
+                    new FileReader("D:/Projects/Tagger/src/main/java/com/charliebignell/app/songs.csv"));
 
-            while ((line = br.readLine()) != null)
-            {
+            while ((line = br.readLine()) != null) {
                 String[] songDetails = line.split(",");
                 String[] songTags = songDetails[2].split("-");
 
-                for(String t : songTags){
-                    if(tags.contains(t)){
+                for (String t : songTags) {
+                    // If the song contains the tag, create a temporary Song object and output the
+                    // formatted string
+                    if (tags.contains(t)) {
                         Song s = new Song(songDetails[0], songDetails[1], true);
                         System.out.println(s.toString());
                         break;
                     }
                 }
-                
+
             }
             br.close();
 
