@@ -10,17 +10,27 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 public class SongTest {
-    private Song song = new Song("name", "artist", false);
+    private Song song;
 
     @Before
-    public void add_tag(){
+    public void setUp() {
+        try {
+            FileWriter writer = new FileWriter("src/main/java/com/charliebignell/app/songs.csv", false);
+            writer.append("name,artist,tags");
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        song = new Song("name", "artist", false);
         song.addTag("tag");
     }
 
     @After
-    public void remove_tag(){
+    public void tearDown() {
         song.removeTag("tag");
     }
 
@@ -40,14 +50,14 @@ public class SongTest {
     }
 
     @Test
-    public void check_contains_method(){
+    public void check_contains_method() {
         assertEquals(song.containsTag("non-existent"), false);
         assertEquals(song.containsTag(""), false);
         assertEquals(song.containsTag("tag"), true);
     }
 
     @Test
-    public void save_song_to_csv(){
+    public void save_song_to_csv() {
         String line = "";
         boolean containsFlag = false;
         try {
@@ -68,7 +78,7 @@ public class SongTest {
     }
 
     @Test
-    public void delete_song(){
+    public void delete_song() {
         String line = "";
         boolean containsFlag = false;
 
@@ -76,8 +86,7 @@ public class SongTest {
         newSong.deleteSong();
 
         try {
-            BufferedReader br = new BufferedReader(
-                    new FileReader("src/main/java/com/charliebignell/app/songs.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/charliebignell/app/songs.csv"));
 
             while ((line = br.readLine()) != null) {
                 if (line.equals(newSong.getEntry())) {
@@ -92,13 +101,13 @@ public class SongTest {
         assertFalse("Song failed to delete", containsFlag);
     }
 
-    @Test 
-    public void get_entry(){
+    @Test
+    public void get_entry() {
         assertEquals(song.getEntry(), "name,artist,tag");
     }
 
     @Test
-    public void check_toString(){
+    public void check_toString() {
         assertEquals(song.toString(), "name, by artist");
     }
 

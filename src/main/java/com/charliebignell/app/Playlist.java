@@ -1,14 +1,14 @@
 package com.charliebignell.app;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileReader;
 
 public class Playlist<T> implements Tracklist<T> {
 
-    private List<String> tags = new ArrayList<String>();
+    private Set<String> tags = new HashSet<String>();
 
     /*
      * Playlist Constructor
