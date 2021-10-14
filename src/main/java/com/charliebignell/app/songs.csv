@@ -1,4 +1,3 @@
 name,artist,tags
-name1,artist1,-
-name2,artist2,-
-name1,artist1,-
+name1,artist1,tag1
+name2,artist2,tag1-tag2

@@ -3,7 +3,7 @@ package com.charliebignell.app;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.PrintStream;
-import java.io.ByteArrayOutputStream; 
+import java.io.ByteArrayOutputStream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,6 +21,8 @@ public class PlaylistTest {
 
     @Before
     public void setUp() {
+
+        // Clear the csv file so it's clean for each test
         try {
             FileWriter writer = new FileWriter("src/main/java/com/charliebignell/app/songs.csv", false);
             writer.append("name,artist,tags");
@@ -42,9 +44,6 @@ public class PlaylistTest {
     @After
     public void tearDown() {
         System.setOut(standardOut);
-        song1.removeTag("tag1");
-        song2.removeTag("tag1");
-        song2.removeTag("tag2");
     }
 
     @Test

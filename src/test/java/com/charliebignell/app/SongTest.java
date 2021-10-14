@@ -13,12 +13,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-
 public class SongTest {
     private Song song;
 
     @Before
     public void setUp() {
+
+        // Wipe the csv file so it's clean for each test
         try {
             FileWriter writer = new FileWriter("src/main/java/com/charliebignell/app/songs.csv", false);
             writer.append("name,artist,tags");
@@ -27,13 +28,9 @@ public class SongTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         song = new Song("name", "artist", false);
         song.addTag("tag");
-    }
-
-    @After
-    public void tearDown() {
-        song.removeTag("tag");
     }
 
     @Test

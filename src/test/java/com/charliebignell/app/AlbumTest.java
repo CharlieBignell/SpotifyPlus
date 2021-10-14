@@ -1,14 +1,13 @@
 package com.charliebignell.app;
 
 import java.io.PrintStream;
-import java.io.ByteArrayOutputStream; 
+import java.io.ByteArrayOutputStream;
 
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
 
 import static org.junit.Assert.assertEquals;
-
 
 public class AlbumTest {
     private Song song1 = new Song("name1", "artist1", false);
@@ -26,9 +25,9 @@ public class AlbumTest {
     public void tearDown() {
         System.setOut(outContent);
     }
-    
+
     @Test
-    public void check_populate(){
+    public void check_populate() {
         assertEquals(0, album.getSize());
         album.populate(song1);
         assertEquals(1, album.getSize());
