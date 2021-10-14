@@ -24,7 +24,7 @@ public class Song {
      */
     public Song(String name, String artist, boolean temp) throws IllegalArgumentException {
         super();
-        if (name == null || artist == null) {
+        if (name == "" || artist == "") {
             throw new IllegalArgumentException("Missing name or artist");
         }
         this.name = name;
@@ -60,9 +60,13 @@ public class Song {
      * @param tag The tag to add to the song
      */
     public void addTag(String tag) {
-        this.deleteSong();
-        this.tags.add(tag);
-        this.saveSong();
+        if(this.containsTag(tag)){
+            System.out.println("This song already has the tag '" + tag + "'");
+        }else{
+            this.deleteSong();
+            this.tags.add(tag);
+            this.saveSong();
+        }
     }
 
     /**
@@ -106,11 +110,12 @@ public class Song {
      */
     public void deleteSong() {
         String line = ""; // Represents the line of the csv currently being read
-        List<String> songsToKeep = new ArrayList<String>(); // Holds the songs to keep when looping through the csv i.e. all songs except the current one
-       
+        List<String> songsToKeep = new ArrayList<String>(); // Holds the songs to keep when looping through the csv
+        
+        // Go through the songs csv, and make a note of all songs to keep i.e. all songs except this one
         try {
             BufferedReader br = new BufferedReader(
-                    new FileReader("D:/Projects/Tagger/src/main/java/com/charliebignell/app/songs.csv"));
+                    new FileReader("src/main/java/com/charliebignell/app/songs.csv"));
 
             // Add all song entries to songsToKeep, unless it's this song
             while ((line = br.readLine()) != null) {
@@ -125,6 +130,7 @@ public class Song {
             e.printStackTrace();
         }
 
+        // Re-add all the songs to keep
         try {
             FileWriter writer = new FileWriter("src/main/java/com/charliebignell/app/songs.csv");
             writer.append("name,artist,tags");

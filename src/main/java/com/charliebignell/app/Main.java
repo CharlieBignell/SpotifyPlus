@@ -11,10 +11,9 @@ public class Main {
         s2.addTag("tbt");
         s2.addTag("rock");
         s2.removeTag("tbt");
-        Playlist<String> p = new Playlist<String>();
-        p.populate("tbt");
-        p.populate("rap");
+        Album<Song> p = new Album<Song>("Album Name");
+        p.populate(s);
+        p.populate(s2);
         p.playSongs();
-
     }
 }

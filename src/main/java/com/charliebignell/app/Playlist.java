@@ -57,7 +57,7 @@ public class Playlist<T> implements Tracklist<T> {
 
         try {
             BufferedReader br = new BufferedReader(
-                    new FileReader("D:/Projects/Tagger/src/main/java/com/charliebignell/app/songs.csv"));
+                    new FileReader("src/main/java/com/charliebignell/app/songs.csv"));
 
             while ((line = br.readLine()) != null) {
                 String[] songDetails = line.split(",");
