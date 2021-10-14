@@ -2,12 +2,13 @@ package com.charliebignell.app;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class Song {
+public class Song extends Audio {
 
     private final String name;
     private final String artist;
@@ -23,7 +24,7 @@ public class Song {
      * @throws IllegalArgumentException
      */
     public Song(String name, String artist, boolean temp) throws IllegalArgumentException {
-        super();
+        super(name, artist);
         if (name == "" || artist == "") {
             throw new IllegalArgumentException("Missing name or artist");
         }
@@ -34,24 +35,6 @@ public class Song {
         if (!temp) {
             saveSong();
         }
-    }
-
-    /**
-     * Get the name of a song
-     * 
-     * @return The song name
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Get the song's artist
-     * 
-     * @return The song's artist
-     */
-    public String getArtist() {
-        return this.artist;
     }
 
     /**
