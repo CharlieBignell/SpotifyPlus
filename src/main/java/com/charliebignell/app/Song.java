@@ -55,7 +55,7 @@ public class Song {
     }
 
     /**
-     * Add a tag to the song. Deletes the song from the csv first, adds the tag, then creates a new entry in the CSV.
+     * Add a tag(string) to the song. Deletes the song from the csv first, adds the tag, then creates a new entry in the CSV.
      * 
      * @param tag The tag to add to the song
      */
@@ -70,12 +70,44 @@ public class Song {
     }
 
     /**
+     * Add a tag (integer) to the song. Deletes the song from the csv first, adds the tag, then creates a new entry in the CSV.
+     * 
+     * @param tag The tag to add to the song
+     */
+    public void addTag(int tag) {
+        String stringTag = Integer.toString(tag);
+
+        if(this.containsTag(stringTag)){
+            System.out.println("This song already has the tag '" + stringTag + "'");
+        }else{
+            this.deleteSong();
+            this.tags.add(stringTag);
+            this.saveSong();
+        }
+    }
+
+    /**
      * Remove a tag from the song. Similar process to addTag, but first checks whether the tag exists.
      * 
      * @param tag The tag to remove from the song
      */
     public void removeTag(String tag) {
         if (containsTag(tag)) {
+            this.deleteSong();
+            tags.remove(tag);
+            this.saveSong();
+        }
+    }
+
+    /**
+     * Remove a tag (int) from the song. Similar process to addTag, but first checks whether the tag exists.
+     * 
+     * @param tag The tag to remove from the song
+     */
+    public void removeTag(int tag) {
+        String stringTag = Integer.toString(tag);
+
+        if (containsTag(stringTag)) {
             this.deleteSong();
             tags.remove(tag);
             this.saveSong();

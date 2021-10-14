@@ -48,6 +48,14 @@ public class SongTest {
     }
 
     @Test
+    public void add_and_remove_tags_integer() {
+        song.addTag(1);
+        assertTrue("Tag not added", song.containsTag("1"));
+        song.removeTag(1);
+        assertFalse("Tag not removed", song.containsTag("new tag"));
+    }
+
+    @Test
     public void check_contains_method() {
         assertEquals(song.containsTag("non-existent"), false);
         assertEquals(song.containsTag(""), false);
