@@ -5,7 +5,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
