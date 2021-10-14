@@ -1,12 +1,12 @@
 package com.charliebignell.app;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Album<T> implements Tracklist<T> {
 
     private final String name;
-    private List<Song> songs = new LinkedList<Song>();
+    private Set<Song> songs = new HashSet<Song>();
 
     public Album(String name) {
         super();
