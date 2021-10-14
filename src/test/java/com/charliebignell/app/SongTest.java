@@ -1,16 +1,18 @@
 package com.charliebignell.app;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 
 public class SongTest {
     private Song song;

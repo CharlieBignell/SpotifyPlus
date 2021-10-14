@@ -1,13 +1,15 @@
 package com.charliebignell.app;
 
-import static org.junit.Assert.assertEquals;
+import java.io.IOException;
+import java.io.FileWriter;
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream; 
+
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
-import java.io.IOException;
-import java.io.FileWriter;
 
 public class PlaylistTest {
     private Song song1;
@@ -35,7 +37,6 @@ public class PlaylistTest {
         song2.addTag("tag1");
         song2.addTag("tag2");
         System.setOut(new PrintStream(outputStreamCaptor));
-        
     }
 
     @After

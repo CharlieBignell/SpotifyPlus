@@ -14,7 +14,7 @@ public class Album<T> implements Tracklist<T> {
     }
 
     /**
-     * Ass a song to a playlist
+     * Add a song to an album
      * 
      * @param songRef The song reference. In the case of a playlist, this is a Song
      *                object
@@ -26,6 +26,15 @@ public class Album<T> implements Tracklist<T> {
         } else {
             throw new IllegalArgumentException("Input must be a song");
         }
+    }
+
+    /**
+     * Get the number of songs in the album
+     * 
+     * @return the number of songs in the album
+     */
+    public int getSize(){
+        return this.songs.size();
     }
 
     /**
