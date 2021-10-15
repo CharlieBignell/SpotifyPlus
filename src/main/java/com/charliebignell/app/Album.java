@@ -52,7 +52,7 @@ public class Album<T> implements Tracklist<T> {
 
     @Override
     public String toString(){
-        return this.name + "(" + this.getSize() + " songs)";
+        return this.name + ", contains " + this.getSize() + " song(s)";
     }
 
 }

@@ -14,7 +14,7 @@ public class Song extends Audio {
      * 
      * @param name   The name of the song
      * @param artist The song's artist
-
+     * 
      * @throws IllegalArgumentException
      */
     public Song(String name, String artist) throws IllegalArgumentException {
@@ -27,7 +27,8 @@ public class Song extends Audio {
     }
 
     /**
-     * Add a tag(string) to the song. Deletes the song from the csv first, adds the tag, then creates a new entry in the CSV.
+     * Add a tag(string) to the song. Deletes the song from the csv first, adds the
+     * tag, then creates a new entry in the CSV.
      * 
      * @param tag The tag to add to the song
      */
@@ -36,16 +37,18 @@ public class Song extends Audio {
     }
 
     /**
-     * Add a tag (integer) to the song. Deletes the song from the csv first, adds the tag, then creates a new entry in the CSV.
+     * Add a tag (integer) to the song. Deletes the song from the csv first, adds
+     * the tag, then creates a new entry in the CSV.
      * 
      * @param tag The tag to add to the song
      */
-    public void addTag(int tag) {      
+    public void addTag(int tag) {
         this.tags.add(Integer.toString(tag));
     }
 
     /**
-     * Remove a tag from the song. Similar process to addTag, but first checks whether the tag exists.
+     * Remove a tag from the song. Similar process to addTag, but first checks
+     * whether the tag exists.
      * 
      * @param tag The tag to remove from the song
      */
@@ -56,7 +59,8 @@ public class Song extends Audio {
     }
 
     /**
-     * Remove a tag (int) from the song. Similar process to addTag, but first checks whether the tag exists.
+     * Remove a tag (int) from the song. Similar process to addTag, but first checks
+     * whether the tag exists.
      * 
      * @param tag The tag to remove from the song
      */
@@ -75,6 +79,21 @@ public class Song extends Audio {
      */
     public boolean containsTag(String tag) {
         return this.tags.contains(tag);
+    }
+
+    /**
+     * Get the list of tags
+     * 
+     * @return a string representation of the tags
+     */
+    public String getTags() {
+        String tagString = "";
+        for (String tag : tags) {
+            tagString = tagString.concat(tag + ",");
+        }
+
+        return tagString.length() > 0 ? tagString.substring(0, tagString.length() - 1) : "";
+
     }
 
     /**

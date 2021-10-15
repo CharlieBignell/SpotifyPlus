@@ -2,24 +2,25 @@ package com.charliebignell.app;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileReader;
 
 public class Library {
-    
+
     private static Library libraryInstance = null;
 
     private final String author;
+
     private List<Song> songList = null;
     private List<Album<Song>> albumList = null;
-    private List<String> tagList = null;
 
     private Library(String author) {
         songList = new ArrayList<Song>();
         albumList = new ArrayList<Album<Song>>();
-        tagList = new ArrayList<String>();
         this.author = author;
         this.getFromCSV();
     }
@@ -42,7 +43,7 @@ public class Library {
                 if (!head) {
                     String[] lineArr = line.split(",");
                     this.songList.add(new Song(lineArr[0], lineArr[1]));
-                }else{
+                } else {
                     head = false;
                 }
             }
@@ -53,31 +54,41 @@ public class Library {
         }
     }
 
-    public void addAlbum(Album<Song> album){
+    public void addAlbum(Album<Song> album) {
         this.albumList.add(album);
     }
 
-    public void addSong(Song song){
-        this.songList.add(song);
+    public void addSong(Song song) {
+        if (!songList.contains(song)) {
+            this.songList.add(song);
+        }
     }
 
-    public void addTag(String tag){
-        this.tagList.add(tag);
+    public void removeSong(Song song) {
+        if (songList.contains(song)) {
+            this.songList.remove(song);
+        }
     }
 
-    public StringBuffer getSongs(String tag){
+    public StringBuffer getSongs(String tag) {
         StringBuffer buffer = new StringBuffer();
-        for(Song s : songList){
-            if(s.containsTag(tag)){
+        for (Song s : songList) {
+            if (s.containsTag(tag)) {
                 buffer.append(s.toString());
             }
         }
         return buffer;
     }
 
-
     public void printTags() {
+        Set<String> tagList = new HashSet<String>();
         System.out.println("-- Tags --");
+        for (Song s : songList) {
+            String[] tagArr = s.getTags().split(",");
+            for (String tag : tagArr) {
+                tagList.add(tag);
+            }
+        }
         for (String tag : tagList) {
             System.out.println(tag);
         }

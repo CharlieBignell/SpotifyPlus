@@ -24,6 +24,8 @@ public class Playlist<T> implements Tracklist<T> {
     public void populate(T songRef) {
         if (songRef instanceof String) {
             tags.add((String) songRef);
+        } else if (songRef instanceof Integer) {
+            tags.add(Integer.toString((Integer) songRef));
         } else {
             throw new IllegalArgumentException("Input must be a String");
         }
@@ -39,6 +41,8 @@ public class Playlist<T> implements Tracklist<T> {
     public void dePopulate(T songRef) {
         if (songRef instanceof String) {
             tags.remove(songRef);
+        } else if (songRef instanceof Integer) {
+            tags.remove(Integer.toString((Integer) songRef));
         } else {
             throw new IllegalArgumentException("Input must be a String");
         }
@@ -49,7 +53,7 @@ public class Playlist<T> implements Tracklist<T> {
      * the songs to the console
      */
     public void playSongs(Library lib) {
-        for(String tag : tags){
+        for (String tag : tags) {
             System.out.println(lib.getSongs(tag));
         }
     }

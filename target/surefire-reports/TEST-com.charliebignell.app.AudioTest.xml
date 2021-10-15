@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.charliebignell.app.SongTest" time="0.004" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.charliebignell.app.AudioTest" time="0.065" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -56,8 +56,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="add_and_remove_tags_integer" classname="com.charliebignell.app.SongTest" time="0"/>
-  <testcase name="check_contains_method" classname="com.charliebignell.app.SongTest" time="0.001"/>
-  <testcase name="add_and_remove_tags" classname="com.charliebignell.app.SongTest" time="0"/>
-  <testcase name="get_song_name_and_artist" classname="com.charliebignell.app.SongTest" time="0"/>
+  <testcase name="get_name_and_artist" classname="com.charliebignell.app.AudioTest" time="0.003"/>
 </testsuite>
