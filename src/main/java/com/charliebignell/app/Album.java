@@ -8,8 +8,17 @@ public class Album<T> implements Tracklist<T> {
     protected final String name;
     protected Set<Song> songs = new HashSet<Song>();
 
+    /**
+     * Album constructor
+     * 
+     * @param name the name of the album
+     * @throws IllegalArgumentException
+     */
     public Album(String name) {
         super();
+        if (name == "") {
+            throw new IllegalArgumentException("Name cannot be blank");
+        }
         this.name = name;
     }
 
@@ -33,7 +42,7 @@ public class Album<T> implements Tracklist<T> {
      * 
      * @return the number of songs in the album
      */
-    public int getSize(){
+    public int getSize() {
         return this.songs.size();
     }
 
@@ -50,8 +59,14 @@ public class Album<T> implements Tracklist<T> {
         }
     }
 
+    /**
+     * 
+     * An override of the object's toString() method
+     * 
+     * @return The formatted string representation of the album
+     */
     @Override
-    public String toString(){
+    public String toString() {
         return this.name + ", contains " + this.getSize() + " song(s)";
     }
 
