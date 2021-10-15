@@ -42,12 +42,17 @@ public class Album<T> implements Tracklist<T> {
      * the songs to the console
      * 
      */
-    public void playSongs() {
+    public void playSongs(Library lib) {
         System.out.println("-- " + this.name + " --");
 
         for (Song s : songs) {
             System.out.println(s.toString());
         }
+    }
+
+    @Override
+    public String toString(){
+        return this.name + "(" + this.getSize() + " songs)";
     }
 
 }

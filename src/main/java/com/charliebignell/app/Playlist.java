@@ -2,9 +2,6 @@ package com.charliebignell.app;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.FileReader;
 
 public class Playlist<T> implements Tracklist<T> {
 
@@ -51,35 +48,10 @@ public class Playlist<T> implements Tracklist<T> {
      * Play the songs in the playlist, for demonstrative purposes it simply ouputs
      * the songs to the console
      */
-    public void playSongs() {
-
-        String line = "";
-
-        try {
-            BufferedReader br = new BufferedReader(
-                    new FileReader("src/main/java/com/charliebignell/app/songs.csv"));
-
-            while ((line = br.readLine()) != null) {
-                String[] songDetails = line.split(",");
-                String[] songTags = songDetails[2].split("-");
-
-                for (String t : songTags) {
-                    // If the song contains the tag, create a temporary Song object and output the
-                    // formatted string
-                    if (tags.contains(t)) {
-                        Song s = new Song(songDetails[0], songDetails[1], true);
-                        System.out.println(s.toString());
-                        break;
-                    }
-                }
-
-            }
-            br.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void playSongs(Library lib) {
+        for(String tag : tags){
+            System.out.println(lib.getSongs(tag));
         }
-
     }
 
 }
