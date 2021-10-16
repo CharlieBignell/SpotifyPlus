@@ -1,4 +1,19 @@
 -------------------------------------------------------------------------------
 Test set: com.charliebignell.app.PlaylistTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.charliebignell.app.PlaylistTest
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in com.charliebignell.app.PlaylistTest
+check_populate_and_play(com.charliebignell.app.PlaylistTest)  Time elapsed: 0.014 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<[]name3, by artist3> but was:<[Successfully added song
+
+Successfully added tag
+
+Playing ]name3, by artist3>
+	at com.charliebignell.app.PlaylistTest.check_populate_and_play(PlaylistTest.java:48)
+
+check_depopulate(com.charliebignell.app.PlaylistTest)  Time elapsed: 0.008 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<[]name2, by artist2> but was:<[Playing name2, by artist2
+Playing ]name2, by artist2>
+	at com.charliebignell.app.PlaylistTest.check_depopulate(PlaylistTest.java:57)
+
