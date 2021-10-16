@@ -53,8 +53,9 @@ public class Playlist<T> implements Tracklist<T> {
      * the songs to the console
      */
     public void playSongs(Library lib) {
+        System.out.println();
         for (String tag : tags) {
-            System.out.println(lib.getSongs(tag));
+            lib.playSongsFromTag(tag);
         }
     }
 

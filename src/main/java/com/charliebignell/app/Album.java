@@ -55,7 +55,7 @@ public class Album<T> implements Tracklist<T> {
         System.out.println("-- " + this.name + " --");
 
         for (Song s : songs) {
-            System.out.println(s.toString());
+            System.out.println("Playing " + s.toString());
         }
     }
 

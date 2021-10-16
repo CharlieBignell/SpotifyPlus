@@ -74,7 +74,13 @@ public class Library {
      * @param album the album to add
      */
     public void addAlbum(Album<Song> album) {
-        this.albumList.add(album);
+        if (!albumList.contains(album)) {
+            this.albumList.add(album);
+            System.out.println("\nSuccessfully created album\n");
+        } else {
+            System.out.println("\nThis album already exists!\n");
+
+        }
     }
 
     /**
@@ -85,17 +91,38 @@ public class Library {
     public void addSong(Song song) {
         if (!songList.contains(song)) {
             this.songList.add(song);
+            System.out.println("\nSuccessfully added song");
+        } else {
+            System.out.println("\nThis song already exists!\n");
+
         }
     }
 
     /**
      * Remove a song from the library
      * 
-     * @param song the song to remove
+     * @param i the index of the song to remove
      */
-    public void removeSong(Song song) {
-        if (songList.contains(song)) {
-            this.songList.remove(song);
+    public void removeSong(int i) {
+        if (songList.contains(songList.get(i))) {
+            this.songList.remove(songList.get(i));
+            System.out.println("\nSuccessfully removed song\n");
+        } else {
+            System.out.println("\nInvalid song id\n");
+        }
+    }
+
+    /**
+     * Remove an album from the library
+     * 
+     * @param i the index of the album to remove
+     */
+    public void removeAlbum(int i) {
+        if (albumList.contains(albumList.get(i))) {
+            this.albumList.remove(albumList.get(i));
+            System.out.println("\nSuccessfully removed album\n");
+        } else {
+            System.out.println("\nInvalid album id\n");
         }
     }
 
@@ -105,14 +132,28 @@ public class Library {
      * @param tag the tag to search for
      * @return the list of songs
      */
-    public StringBuffer getSongs(String tag) {
-        StringBuffer buffer = new StringBuffer();
+    public void playSongsFromTag(String tag) {
         for (Song s : songList) {
             if (s.containsTag(tag)) {
-                buffer.append(s.toString());
+                System.out.println("Playing " + s.getName() + ", by " + s.getArtist());
             }
         }
-        return buffer;
+    }
+
+    public Song getSong(int i) {
+        return this.songList.get(i);
+    }
+
+    public Album<Song> getAlbum(int i) {
+        return this.albumList.get(i);
+    }
+
+    public int getAlbumCount() {
+        return this.albumList.size();
+    }
+
+    public int getSongCount() {
+        return this.songList.size();
     }
 
     /**
@@ -142,8 +183,10 @@ public class Library {
      */
     public void printSongs() {
         System.out.println("-- Songs --");
+        int i = 0;
         for (Song song : songList) {
-            System.out.println(song.toString());
+            System.out.println(i + ": " + song.toString());
+            i++;
         }
     }
 
@@ -151,20 +194,32 @@ public class Library {
      * Print the albums
      */
     public void printAlbums() {
-        System.out.println("-- Albums --");
+        System.out.println("\n-- Albums --");
+        int i = 0;
         for (Album<Song> album : albumList) {
-            System.out.println(album.toString());
+            System.out.println(i + ": " + album.toString());
+            i++;
         }
+    }
+
+    /**
+     * Print the whole library
+     */
+    public void printLibrary() {
+        System.out.println("--------------------");
+        System.out.println(this.author + "'s Music Library\n");
+        printSongs();
+        printAlbums();
+
     }
 
     /**
      * Print a summary of the library
      */
-    public void printLibrary() {
+    public void printSummary() {
+        System.out.println("--------------------");
         System.out.println(this.author + "'s Music Library");
-        System.out.println("-------------");
-        printSongs();
-        printAlbums();
-
+        System.out.println(songList.size() + " song(s)");
+        System.out.println(albumList.size() + " album(s)");
     }
 }

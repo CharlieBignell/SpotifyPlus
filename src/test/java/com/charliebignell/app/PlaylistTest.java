@@ -34,8 +34,8 @@ public class PlaylistTest {
     @After
     public void tearDown() {
         System.setOut(standardOut);
-        lib.removeSong(song1);
-        lib.removeSong(song2);
+        lib.removeSong(0);
+        lib.removeSong(1);
     }
 
     @Test
