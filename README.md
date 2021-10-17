@@ -10,6 +10,7 @@ The purpose of this project was for me to re-fresh my memory of Java, as it used
 - Polymorphism
 - Encapsulation
 - Singleton classes
+- Generics
 - Method overloading
 - Exception handling
 - Junit testing
