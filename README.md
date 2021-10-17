@@ -18,4 +18,4 @@ After including as many concepts as possible in such a simple program, multiple 
 
 **The goal was to produce a Java cheat-sheet in the form of a single program, *not* to create a well produced music organisation system.** 
 
-To read more about this project, please visit [my portfolio website](charliebignell.uk/projects)
+To read more about this project, please visit my portfolio website: charliebignell.uk/projects/tagger
