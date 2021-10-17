@@ -16,4 +16,6 @@ The purpose of this project was for me to re-fresh my memory of Java, as it used
 
 After including as many concepts as possible in such a simple program, multiple reducndencies appeared. Also, certain parts aren't implemented in very efficient ways.
 
-The goal was to produce a Java cheat-sheet in the form of a single program, *not* to create a well produced music organisation system. To read more about this project, please visit [my portfolio website](charliebignell.uk/projects)
+**The goal was to produce a Java cheat-sheet in the form of a single program, *not* to create a well produced music organisation system.** 
+
+To read more about this project, please visit [my portfolio website](charliebignell.uk/projects)
