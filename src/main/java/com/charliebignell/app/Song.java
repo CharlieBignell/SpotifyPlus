@@ -34,7 +34,6 @@ public class Song extends Audio {
      */
     public void addTag(String tag) {
         this.tags.add(tag);
-        System.out.println("\nSuccessfully added tag");
     }
 
     /**
@@ -56,7 +55,6 @@ public class Song extends Audio {
     public void removeTag(String tag) {
         if (containsTag(tag)) {
             tags.remove(tag);
-            System.out.println("Successfully added tag");
         }
     }
 

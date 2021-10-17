@@ -27,7 +27,6 @@ public class Library {
         songList = new ArrayList<Song>();
         albumList = new ArrayList<Album<Song>>();
         this.author = author;
-        this.getFromCSV();
     }
 
     /**
@@ -42,6 +41,10 @@ public class Library {
         }
 
         return libraryInstance;
+    }
+
+    public String getAuthor(){
+        return this.author;
     }
 
     /**
@@ -76,7 +79,6 @@ public class Library {
     public void addAlbum(Album<Song> album) {
         if (!albumList.contains(album)) {
             this.albumList.add(album);
-            System.out.println("\nSuccessfully created album\n");
         } else {
             System.out.println("\nThis album already exists!\n");
 
@@ -91,9 +93,8 @@ public class Library {
     public void addSong(Song song) {
         if (!songList.contains(song)) {
             this.songList.add(song);
-            System.out.println("\nSuccessfully added song");
         } else {
-            System.out.println("\nThis song already exists!\n");
+            System.out.println("\nThis song already exists!");
 
         }
     }
@@ -106,9 +107,8 @@ public class Library {
     public void removeSong(int i) {
         if (songList.contains(songList.get(i))) {
             this.songList.remove(songList.get(i));
-            System.out.println("\nSuccessfully removed song\n");
         } else {
-            System.out.println("\nInvalid song id\n");
+            System.out.println("\nInvalid song ID");
         }
     }
 
@@ -120,9 +120,8 @@ public class Library {
     public void removeAlbum(int i) {
         if (albumList.contains(albumList.get(i))) {
             this.albumList.remove(albumList.get(i));
-            System.out.println("\nSuccessfully removed album\n");
         } else {
-            System.out.println("\nInvalid album id\n");
+            System.out.println("\nInvalid album id");
         }
     }
 
@@ -140,18 +139,40 @@ public class Library {
         }
     }
 
+    /**
+     * Get song with a given index
+     * 
+     * @param i the index of the song to get
+     * @return the song with the given index
+     */
     public Song getSong(int i) {
         return this.songList.get(i);
     }
 
+    /**
+     * Get an album with a given index
+     * 
+     * @param i the index of the album to get
+     * @return the album with the given index
+     */
     public Album<Song> getAlbum(int i) {
         return this.albumList.get(i);
     }
 
+    /**
+     * Get the number of albums
+     * 
+     * @return the size of the album list
+     */
     public int getAlbumCount() {
         return this.albumList.size();
     }
 
+    /**
+     * Get the number of songs in the library
+     * 
+     * @return the size of the song list
+     */
     public int getSongCount() {
         return this.songList.size();
     }

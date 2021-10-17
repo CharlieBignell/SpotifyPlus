@@ -45,7 +45,7 @@ public class PlaylistTest {
         newSong.addTag("tag3");
         playlist.populate("tag3");
         playlist.playSongs(lib);
-        assertEquals(newSong.toString(), outputStreamCaptor.toString().trim());
+        assertEquals("Playing name3, by artist3", outputStreamCaptor.toString().trim());
     }
 
     @Test
@@ -54,6 +54,6 @@ public class PlaylistTest {
         playlist.populate("tag2");
         playlist.dePopulate("tag1");
         playlist.playSongs(lib);
-        assertEquals(song2.toString(), outputStreamCaptor.toString().trim());
+        assertEquals("Playing name2, by artist2", outputStreamCaptor.toString().trim());
     }
 }
