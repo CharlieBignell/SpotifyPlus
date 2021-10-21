@@ -47,13 +47,4 @@ public class PlaylistTest {
         playlist.playSongs(lib);
         assertEquals("Playing name3, by artist3", outputStreamCaptor.toString().trim());
     }
-
-    @Test
-    public void check_depopulate() {
-        playlist.populate("tag1");
-        playlist.populate("tag2");
-        playlist.dePopulate("tag1");
-        playlist.playSongs(lib);
-        assertEquals("Playing name2, by artist2", outputStreamCaptor.toString().trim());
-    }
 }

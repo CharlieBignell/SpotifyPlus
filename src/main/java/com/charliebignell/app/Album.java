@@ -5,8 +5,8 @@ import java.util.Set;
 
 public class Album<T> implements Tracklist<T> {
 
-    protected final String name;
-    protected Set<Song> songs = new HashSet<Song>();
+    private final String name;
+    private Set<Song> songs = new HashSet<Song>();
 
     /**
      * Album constructor

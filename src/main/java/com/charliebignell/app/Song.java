@@ -5,8 +5,7 @@ import java.util.HashSet;
 
 public class Song extends Audio {
 
-    private final String name;
-    private final String artist;
+
     private Set<String> tags = new HashSet<String>();
 
     /**
@@ -17,13 +16,8 @@ public class Song extends Audio {
      * 
      * @throws IllegalArgumentException
      */
-    public Song(String name, String artist) throws IllegalArgumentException {
+    public Song(String name, String artist){
         super(name, artist);
-        if (name == "" || artist == "") {
-            throw new IllegalArgumentException("Missing name or artist");
-        }
-        this.name = name;
-        this.artist = artist;
     }
 
     /**

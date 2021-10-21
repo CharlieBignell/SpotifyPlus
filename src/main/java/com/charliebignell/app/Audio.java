@@ -2,8 +2,8 @@ package com.charliebignell.app;
 
 public class Audio {
 
-    private final String name;
-    private final String artist;
+    protected final String name;
+    protected final String artist;
 
     /**
      * Audio Constructor

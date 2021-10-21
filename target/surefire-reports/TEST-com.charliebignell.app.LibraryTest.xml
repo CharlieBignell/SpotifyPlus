@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.charliebignell.app.SongTest" time="0.002" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.charliebignell.app.LibraryTest" time="0.002" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -56,9 +56,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="add_and_remove_tags_integer" classname="com.charliebignell.app.SongTest" time="0"/>
-  <testcase name="check_contains_method" classname="com.charliebignell.app.SongTest" time="0"/>
-  <testcase name="add_and_remove_tags" classname="com.charliebignell.app.SongTest" time="0"/>
-  <testcase name="get_song_name_and_artist" classname="com.charliebignell.app.SongTest" time="0"/>
-  <testcase name="get_tags" classname="com.charliebignell.app.SongTest" time="0"/>
+  <testcase name="add_album_and_album_count" classname="com.charliebignell.app.LibraryTest" time="0"/>
+  <testcase name="add_song_and_remove_song" classname="com.charliebignell.app.LibraryTest" time="0"/>
+  <testcase name="remove_album" classname="com.charliebignell.app.LibraryTest" time="0"/>
+  <testcase name="populate_from_csv_and_song_count" classname="com.charliebignell.app.LibraryTest" time="0"/>
+  <testcase name="check_singleton_and_get_author" classname="com.charliebignell.app.LibraryTest" time="0"/>
+  <testcase name="get_album" classname="com.charliebignell.app.LibraryTest" time="0"/>
+  <testcase name="get_song" classname="com.charliebignell.app.LibraryTest" time="0"/>
 </testsuite>
